@@ -1,5 +1,5 @@
 {
-  "name": "The Obsidian Cipher",
-  "description": "A noir-themed puzzle game where you must solve three logic challenges—a sliding puzzle, a riddle, and a precision maze—to unlock a secret QR code.",
+  "name": "Hrafntinnu Dulmálið",
+  "description": "Rökkur-þrautaleikur þar sem þú þarft að leysa þrjár rökþrautir—renniþraut, gátu og nákvæmnisvölundarhús—til að opna leynilegan QR-kóða.",
   "requestFramePermissions": []
 }

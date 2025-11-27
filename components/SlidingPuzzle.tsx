@@ -83,9 +83,9 @@ export const SlidingPuzzle: React.FC<SlidingPuzzleProps> = ({ onComplete, onSkip
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-display text-amber-500 tracking-wider">EVIDENCE RECONSTRUCTION</h2>
+        <h2 className="text-2xl font-display text-amber-500 tracking-wider">ENDURGERÐ SÖNNUNARGAGNA</h2>
         <p className="text-sm text-gray-400 max-w-md">
-          The crime scene photo was shredded. Slide the pieces to restore the correct sequence (1-8).
+          Mynd af vettvangi var tætt niður. Renndu bútunum til að endurheimta rétta röð (1-8).
         </p>
       </div>
 
@@ -120,7 +120,7 @@ export const SlidingPuzzle: React.FC<SlidingPuzzleProps> = ({ onComplete, onSkip
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg backdrop-blur-sm">
             <div className="bg-slate-900 p-6 rounded-xl border border-green-500 flex flex-col items-center animate-bounce-in">
               <CheckCircle className="w-12 h-12 text-green-500 mb-2" />
-              <span className="text-green-400 font-bold tracking-widest">MATCH CONFIRMED</span>
+              <span className="text-green-400 font-bold tracking-widest">SAMSVÖRUN STAÐFEST</span>
             </div>
           </div>
         )}
@@ -131,13 +131,13 @@ export const SlidingPuzzle: React.FC<SlidingPuzzleProps> = ({ onComplete, onSkip
           onClick={initializeGame}
           className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-gray-300 rounded transition-colors"
         >
-          <RefreshCcw size={16} /> Reset
+          <RefreshCcw size={16} /> Endurstilla
         </button>
         <button 
           onClick={onSkip}
           className="text-xs text-red-900 hover:text-red-700 underline"
         >
-          [DEV] Skip Puzzle
+          [DEV] Sleppa þraut
         </button>
       </div>
     </div>

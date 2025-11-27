@@ -6,6 +6,7 @@ export enum ChallengeStatus {
 
 export enum ChallengeType {
   PUZZLE = 'PUZZLE',
+  VIDEO = 'VIDEO',
   RIDDLE = 'RIDDLE',
   MAZE = 'MAZE'
 }

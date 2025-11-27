@@ -46,7 +46,7 @@ export const RiddleChallenge: React.FC<RiddleChallengeProps> = ({ onComplete, on
     return (
       <div className="flex flex-col items-center justify-center h-64 space-y-4">
         <Loader2 className="w-8 h-8 text-amber-500 animate-spin" />
-        <p className="text-slate-400 animate-pulse">Decrypting safe contents...</p>
+        <p className="text-slate-400 animate-pulse">Afkóða innihald skáps...</p>
       </div>
     );
   }
@@ -54,9 +54,9 @@ export const RiddleChallenge: React.FC<RiddleChallengeProps> = ({ onComplete, on
   return (
     <div className="max-w-xl mx-auto flex flex-col items-center space-y-8">
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-display text-amber-500 tracking-wider">THE SAFE'S PASSWORD</h2>
+        <h2 className="text-2xl font-display text-amber-500 tracking-wider">LYKILORÐ ÖRYGGISSKÁPSINS</h2>
         <p className="text-sm text-gray-400">
-          The safe is voice-activated. Answer the riddle to unlock it.
+          Öryggisskápurinn er raddstýrður. Leystu gátuna til að opna hann.
         </p>
       </div>
 
@@ -75,7 +75,7 @@ export const RiddleChallenge: React.FC<RiddleChallengeProps> = ({ onComplete, on
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Who/What am I?"
+              placeholder="Hver/Hvað er ég?"
               disabled={feedback === 'success' || checking}
               className={`
                 w-full bg-slate-900 border-2 rounded-md py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all
@@ -93,10 +93,10 @@ export const RiddleChallenge: React.FC<RiddleChallengeProps> = ({ onComplete, on
           </div>
           
           {feedback === 'error' && (
-             <p className="text-red-400 text-sm font-mono text-center">ACCESS DENIED. TRY AGAIN.</p>
+             <p className="text-red-400 text-sm font-mono text-center">AÐGANGI HAFNAÐ. REYNDU AFTUR.</p>
           )}
           {feedback === 'success' && (
-             <p className="text-green-400 text-sm font-mono text-center">ACCESS GRANTED. UNLOCKING...</p>
+             <p className="text-green-400 text-sm font-mono text-center">AÐGANGUR VEITTUR. OPNA...</p>
           )}
         </form>
       </div>
@@ -105,7 +105,7 @@ export const RiddleChallenge: React.FC<RiddleChallengeProps> = ({ onComplete, on
         onClick={onSkip}
         className="text-xs text-red-900 hover:text-red-700 underline"
       >
-        [DEV] Bypass Security
+        [DEV] Framhjá öryggiskerfi
       </button>
     </div>
   );
