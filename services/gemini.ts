@@ -1,12 +1,23 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy initialization to prevent crash on module load if env is missing
+const getAiClient = () => {
+  // process.env.API_KEY is replaced by Vite at build time
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    console.warn("API_KEY is missing. AI features will not work.");
+    return null;
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 const textModelId = "gemini-2.5-flash";
-const imageModelId = "gemini-2.5-flash-image";
 
 export const generateRiddle = async (): Promise<{ question: string; hint: string }> => {
   try {
+    const ai = getAiClient();
+    if (!ai) throw new Error("API Key missing");
+
     const response = await ai.models.generateContent({
       model: textModelId,
       contents: "Generate a short, challenging riddle where the answer is explicitly 'shadow'. It should be mysterious and poetic.",
@@ -37,6 +48,9 @@ export const generateRiddle = async (): Promise<{ question: string; hint: string
 
 export const validateRiddleAnswer = async (riddle: string, userAnswer: string): Promise<boolean> => {
   try {
+    const ai = getAiClient();
+    if (!ai) return false;
+
     const response = await ai.models.generateContent({
       model: textModelId,
       contents: `
@@ -65,14 +79,16 @@ export const validateRiddleAnswer = async (riddle: string, userAnswer: string): 
     console.error("Gemini Validation Error:", error);
     // Fallback simple validation if API fails
     const normalized = userAnswer.toLowerCase().trim();
-    return normalized.includes('shadow');
+    return normalized.includes('shadow') || normalized.includes('skuggi');
   }
 };
 
 export const analyzeTransmission = async (imageBase64: string): Promise<string> => {
   try {
+    const ai = getAiClient();
+    if (!ai) return "STATUS: SYSTEM OFFLINE. KEY MISSING.";
+
     // Use textModelId (gemini-2.5-flash) because we want a text description of the image.
-    // gemini-2.5-flash-image is for generating images, not analyzing them for text output.
     const response = await ai.models.generateContent({
       model: textModelId, 
       contents: {
