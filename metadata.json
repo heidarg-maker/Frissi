@@ -1,0 +1,5 @@
+{
+  "name": "The Obsidian Cipher",
+  "description": "A noir-themed puzzle game where you must solve three logic challenges—a sliding puzzle, a riddle, and a precision maze—to unlock a secret QR code.",
+  "requestFramePermissions": []
+}
